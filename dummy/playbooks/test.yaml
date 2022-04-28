@@ -1,0 +1,12 @@
+---
+- name: "Testing SSM"
+  hosts: all
+  vars:
+    ansible_connection: aws_ssm
+    ansible_aws_ssm_bucket_name: test-ssm-bkt
+    ansible_aws_ssm_region: us-west-2
+  tasks:
+    - name: Install a Nginx Package
+      yum:
+        name: nginx
+        state: present

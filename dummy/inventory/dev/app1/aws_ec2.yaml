@@ -1,0 +1,13 @@
+# Making use of Dynamic Inventory Plugin
+# =======================================
+# aws_ec2.yml (Dynamic Inventory - Linux)
+# This will return the Instance IDs matching the filter
+plugin: aws_ec2
+regions:
+   - us-west-2
+keyed_groups:
+  - key: tags.Name
+filters:
+  instance-state-name : running
+compose:
+  ansible_host: public_ip_address
